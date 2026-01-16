@@ -1,34 +1,28 @@
-// ========== macOS 系统更新屏蔽规则 ==========
-// 屏蔽检测更新
-host-keyword, swscan, reject
-host-keyword, swdist, reject
-host-suffix, apple.com.edgekey.net, reject
-host-suffix, apple.com.akadns.net, reject
+// ===== 修正版 macOS系统更新屏蔽规则 =====
+[general]
+dns-server = 119.29.29.29, 223.5.5.5
+dns-exclusion = *.apple.com
 
-// 屏蔽更新证书验证
+[filter_local]
+// 基础屏蔽域名
+host-keyword, swscan, reject
+host-suffix, apple.com.edgekey.net, reject
 host, gdmf.apple.com, reject
 host, mesu.apple.com, reject
 host, xp.apple.com, reject
-
-// 屏蔽更新下载
 host, swdownload.apple.com, reject
-host, updates-http.cdn-apple.com, reject
-host, updates.cdn-apple.com, reject
-
-// 屏蔽安装器激活
 host, oscdn.apple.com, reject
-host, ocsp.apple.com, reject
-
-// 屏蔽更新通知服务
 host, appldnld.apple.com, reject
-host, configuration.apple.com, reject
 
-// 阻止本地更新缓存 (需配合脚本使用)
-url-regex, ^https?:\/\/[^\/]+\/index\.sucatalog$, reject
-url-regex, ^https?:\/\/swcdn\.apple\.com\/content\/downloads\/.*\/InstallAssistant\.pkg$, reject
+// 修正 sucatalog 规则 (使用 host 匹配)
+host, swscan.apple.com, reject
+host, swdist.apple.com, reject
 
-// 防止DNS解析泄露 (必需)
-dns-server: 119.29.29.29, 223.5.5.5
-dns-exclusion: *.apple.com
+// 增加 macOS 13+ 专用屏蔽
+host, swcdn.apple.com, reject
+host, swdownload.apple.com.akadns.net, reject
 host, ocsp-lb.apple.com.akadns.net, reject
-host, oscdn.icloud-content.com, reject
+
+// 增强型匹配规则
+ip-cidr, 17.0.0.0/8, reject
+ip-cidr, 104.86.0.0/16, reject
