@@ -8,7 +8,5 @@ host-suffix,mesu.apple.com,reject
 HOST-SUFFIX,betterdisplay.pro,REJECT
 HOST-SUFFIX,api.betterdisplay.pro,REJECT
 HOST-SUFFIX,update.betterdisplay.pro,REJECT
-# Aidente 更新拦截
-HOST-SUFFIX,aidente.com,REJECT
-HOST-SUFFIX,api.aidente.com,REJECT
-HOST-SUFFIX,update.aidente.com,REJECT
+# Aidente 更新拦截（精准版）
+HOST,apphousekitchen.com,REJECT
