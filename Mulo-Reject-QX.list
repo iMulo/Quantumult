@@ -4,3 +4,7 @@ host-suffix,swdownload.apple.com,reject
 host-suffix,swcdn.apple.com,reject
 host-suffix,swdist.apple.com,reject
 host-suffix,mesu.apple.com,reject
+# BetterDisplay 更新拦截
+HOST-SUFFIX,betterdisplay.pro,REJECT
+HOST-SUFFIX,api.betterdisplay.pro,REJECT
+HOST-SUFFIX,update.betterdisplay.pro,REJECT
